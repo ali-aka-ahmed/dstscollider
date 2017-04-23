@@ -5,11 +5,7 @@ After finals I'm going to embed these programs in a website or at least build ou
 
 NOTE, in order for this to work you must have a file 'keys.py.' That file must have the following variables declared:
 
-consumer_key
-consumer_secret
-access_token
-access_token_secret
-twitter_bearer
+consumer_key, consumer_secret, access_token, access_token_secret, twitter_bearer
 
 You can get all of these (except the twitter_bearer) by making a twitter application  here: https://apps.twitter.com
 To get the twitter_bearer, set the field equal to anything (ex twitter_bearer = "Hello World"). Then run the get_twitter_bearer.py file which will replace it with the correct value.
