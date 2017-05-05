@@ -25,7 +25,7 @@ def download_recent_tweets_by_user(user_account_name, keys):
     api = tweepy.API(auth)
 
     # Getting as many recent tweets as Twitter will let us have:
-    tweets = list(tweepy.Cursor(api.user_timeline, id=user_account_name).items(500))
+    tweets = list(tweepy.Cursor(api.user_timeline, id=user_account_name).items(sys.argv[2]))
     return tweets
 
 def save_tweets(tweets, path):

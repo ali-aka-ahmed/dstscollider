@@ -99,16 +99,21 @@ def constraint(label, property):
 
 
 
-while True:
-    try:
-        username = input("Neo4J Username:")
-        password = input("Neo4J Password:")
-        graph = Graph("http://" + username + ":" + password + "@localhost:7474/browser/")
-        break
-    except Exception:
-        print("Error, wrong credentials. Make sure you have Neo4J activated, running on localhost:7474/browser/")
+# while True:
+#     try:
+#         username = input("Neo4J Username:")
+#         password = input("Neo4J Password:")
+#         graph = Graph("http://" + username + ":" + password + "@localhost:7474/browser/")
+#         break
+#     except Exception:
+#         print("Error, wrong credentials. Make sure you have Neo4J activated, running on localhost:7474/browser/")
 
-print("Login success!")
+# print("Login success!")
+
+graphenedb_url = os.environ.get("GRAPHENEDB_BOLT_URL")
+graphenedb_user = os.environ.get("GRAPHENEDB_BOLT_USER")
+graphenedb_pass = os.environ.get("GRAPHENEDB_BOLT_PASSWORD")
+graph = Graph(graphenedb_url, user=graphenedb_user, password=graphenedb_pass, bolt = True, secure = True, http_port = 24789, https_port = 24780)
 
 constraint("Tweet", "id")
 constraint("User", "username")
