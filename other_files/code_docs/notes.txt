@@ -1,0 +1,103 @@
+#########################################################################################################
+# Credit to Nicole White. This is from   https://www.youtube.com/watch?v=Nkd6Ei-xuxI                    #
+# Also need to check out her github:   https://github.com/nicolewhite                                   #
+# And also need to see   https://github.com/nicolewhite/neo4j-rstats/blob/master/collect_keyword.py     # 
+# http://stackoverflow.com/questions/897107/can-i-fetch-the-tweet-from-twitter-if-i-know-the-tweets-id  # you can search by twitter id
+# http://stackoverflow.com/questions/38334386/py2neo-updating-existing-node-with-new-properties-w-uniqueness-constraint-mer # new formatting for py2neo 3
+# -- Delete neo4j database
+# MATCH (n)
+# DETACH DELETE n
+#########################################################################################################
+
+keys AND thing below are super sensitive don’t share
+
+
+
+driver.add_cookie({
+    'name': '_twitter_sess',
+    'path': '/',
+    'httponly': True,
+    'domain': '.twitter.com',
+    'value': 'BAh7CiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCBtdYnpbAToMY3NyZl9p%250AZCIlZTYwMmEwOTk0OTRmMTU4NmE0ZDUxNmE2YTU5MTRjMzk6B2lkIiU2NmU3%250AZjg5NjVkNjMyMGIwYzJhYWMwYmQ4NzcyODE1MDoJdXNlcmwrCQCw1FGzHG4L--c61434b8f42982a244ad644a877799bef1a89753',
+    'secure': True
+})
+driver.add_cookie({
+    'secure': True,
+    'name': 'auth_token',
+    'path': '/',
+    'httponly': True,
+    'domain': '.twitter.com',
+    'expires': 'Thu, 15 Apr 2027 05:28:40 GMT',
+    'value': 'df93e30920ced3e512781f8bba2c25f915eca372',
+    'expiry': 1807766920
+})
+driver.add_cookie({
+    'secure': True,
+    'name': 'twid',
+    'path': '/',
+    'httponly': False,
+    'domain': '.twitter.com',
+    'expires': 'Thu, 15 Apr 2027 05:28:40 GMT',
+    'value': '"u=823627338352996352"',
+    'expiry': 1807766920
+})
+driver.add_cookie({
+    'secure': False,
+    'name': 'remember_checked_on',
+    'path': '/',
+    'httponly': False,
+    'domain': '.twitter.com',
+    'expires': 'Thu, 15 Apr 2027 05:28:40 GMT',
+    'value': '1',
+    'expiry': 1807766920
+})
+driver.add_cookie({
+    'secure': True,
+    'name': 'kdt',
+    'path': '/',
+    'httponly': True,
+    'domain': '.twitter.com',
+    'expires': 'Tue, 16 Oct 2018 05:28:40 GMT',
+    'value': 'K3OpN9EO5h0riq4wHqWHeqLXK91MqZEyHYT775v0',
+    'expiry': 1539667720
+})
+driver.add_cookie({
+    'secure': False,
+    'name': '_gat',
+    'path': '/',
+    'httponly': False,
+    'domain': '.twitter.com',
+    'expires': 'Mon, 17 Apr 2017 05:29:39 GMT',
+    'value': '1',
+    'expiry': 1492406979
+})
+driver.add_cookie({
+    'secure': False,
+    'name': '_ga',
+    'path': '/',
+    'httponly': False,
+    'domain': '.twitter.com',
+    'expires': 'Wed, 17 Apr 2019 05:28:39 GMT',
+    'value': 'GA1.2.1993378138.1492406920',
+    'expiry': 1555478919
+})
+driver.add_cookie({
+    'secure': True,
+    'name': 'ct0',
+    'path': '/',
+    'httponly': False,
+    'domain': '.twitter.com',
+    'expires': 'Mon, 17 Apr 2017 11:28:38 GMT',
+    'value': '6c493289ef0d02eb34f6856f52bb6371',
+    'expiry': 1492428518
+})
+driver.add_cookie({
+    'secure': False,
+    'name': 'guest_id',
+    'path': '/',
+    'httponly': False,
+    'domain': '.twitter.com',
+    'expires': 'Wed, 17 Apr 2019 05:28:38 GMT',
+    'value': 'v1%3A149240691809722482',
+    'expiry': 1555478918
+})
