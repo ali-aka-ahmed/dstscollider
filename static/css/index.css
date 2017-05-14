@@ -1,0 +1,32 @@
+.form {
+	text-align: center;
+}
+
+.title {
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+	font-size: 3em;
+}
+
+.formbox {
+	margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 300;
+    background-color: #f1f2f4;
+    box-sizing: border-box;
+	width: 258px;
+	height: 40px;
+	font-size: 14px;
+	border: none;
+	-webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.num_input {
+	width: 65px;
+}

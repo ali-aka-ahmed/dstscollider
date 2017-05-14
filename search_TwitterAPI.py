@@ -11,7 +11,7 @@ from py2neo import Graph, Relationship, Node
 ##################################################################################
 
 
-def find_tweets(keyword, since_id=-1):
+def find_tweets(keyword, cnt, since_id=-1):
     TWITTER_BEARER = keys.twitter_bearer
     
     headers = dict(
@@ -21,7 +21,7 @@ def find_tweets(keyword, since_id=-1):
     
     payload = dict(
       q= keyword,
-      count = sys.argv[2],
+      count = cnt,
       result_type = "recent",
       lang = "en",
       since_id = since_id
@@ -110,26 +110,26 @@ def constraint(label, property):
 
 # print("Login success!")
 
-graphenedb_url = os.environ.get("GRAPHENEDB_BOLT_URL")
-graphenedb_user = os.environ.get("GRAPHENEDB_BOLT_USER")
-graphenedb_pass = os.environ.get("GRAPHENEDB_BOLT_PASSWORD")
-graph = Graph(graphenedb_url, user=graphenedb_user, password=graphenedb_pass, bolt = True, secure = True, http_port = 24789, https_port = 24780)
+# graphenedb_url = os.environ.get("GRAPHENEDB_BOLT_URL")
+# graphenedb_user = os.environ.get("GRAPHENEDB_BOLT_USER")
+# graphenedb_pass = os.environ.get("GRAPHENEDB_BOLT_PASSWORD")
+# graph = Graph(graphenedb_url, user=graphenedb_user, password=graphenedb_pass, bolt = True, secure = True, http_port = 24789, https_port = 24780)
 
-constraint("Tweet", "id")
-constraint("User", "username")
-constraint("Hashtag", "name")
+# constraint("Tweet", "id")
+# constraint("User", "username")
+# constraint("Hashtag", "name")
 
-since_id = -1
+# since_id = -1
 
-while True:
-    try:
-        tweets = find_tweets(sys.argv[1], since_id=since_id)
-        since_id = tweets[0].get('id')
-        upload_tweets(tweets)
-        print(sys.argv[2] + " objects added. Waiting 30s, program will add " + sys.argv[2] + " more objects to database")
-        time.sleep(30)
+# while True:
+#     try:
+#         tweets = find_tweets(sys.argv[1], since_id=since_id)
+#         # since_id = tweets[0].get('id')
+#         upload_tweets(tweets)
+#         # print(sys.argv[2] + " objects added. Waiting 30s, program will add " + sys.argv[2] + " more objects to database")        
+#         time.sleep(30)
 
-    except Exception as e:
-        print(e)
-        time.sleep(30)
-        continue
+#     except Exception as e:
+#         print(e)
+#         time.sleep(30)
+#         continue
