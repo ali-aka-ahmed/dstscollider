@@ -12,7 +12,4 @@ requests==2.13.0
 six==1.10.0
 Werkzeug==0.12.1
 py2neo==3.1.2
-python==3.5.2
 neo4j-driver==1.2.1
-requests==2.12.4
-requests-oauthlib==0.7.0
